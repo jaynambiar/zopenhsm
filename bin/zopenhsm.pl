@@ -69,7 +69,7 @@ my %mailboxes = &loadMailboxes;
 
 # check if defined volumes exists on Zimbra.
 my ($src_vol_id, $dst_vol_id);
-for my $id (keys($zconf{'volumes'}))
+for my $id (keys %{($zconf{'volumes'})})
 {
     
     if ( $zconf{'volumes'}{$id} =~ m/^$dst_vol$/ )
@@ -97,8 +97,8 @@ elsif ( ! $dst_vol_id )
 ####
 # Manual overwrite for testing
 ####
-#$src_vol_id = 3;
-#$dst_vol_id = 1;
+$src_vol_id = 1;
+$dst_vol_id = 3;
 ####
 
 
@@ -108,7 +108,7 @@ for my $group ( keys(%mailboxes) )
     my $dbh = DBI->connect($dsn, $zconf{mysql_user}, $zconf{mysql_pass});
 
     #my $current_time = time;
-    for my $mailbox (keys(\%{$mailboxes{$group}}))
+    for my $mailbox (keys %{(\%{$mailboxes{$group}})})
     {
     my $query_time = time - $hsmage;
     my $str_query="SELECT id,
