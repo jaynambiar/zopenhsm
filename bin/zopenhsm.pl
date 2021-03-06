@@ -97,8 +97,8 @@ elsif ( ! $dst_vol_id )
 ####
 # Manual overwrite for testing
 ####
-$src_vol_id = 1;
-$dst_vol_id = 3;
+#$src_vol_id = 1;
+#$dst_vol_id = 3;
 ####
 
 
